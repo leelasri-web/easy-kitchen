@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Kitchen – Cooking Mode</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #fff7e6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 15px;
+    }
+
+    .box {
+      background: #ffffff;
+      width: 100%;
+      max-width: 420px;
+      padding: 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+      text-align: center;
+    }
+
+    h2 {
+      color: #ff6f00;
+      margin-bottom: 15px;
+    }
+
+    #step {
+      font-size: 17px;
+      color: #333;
+      min-height: 60px;
+      margin-bottom: 20px;
+    }
+
+    .buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 20px;
+    }
+
+    button {
+      flex: 1;
+      padding: 12px;
+      font-size: 15px;
+      font-weight: bold;
+      border: none;
+      border-radius: 10px;
+      background: #ffcc80;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ffb74d;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+
+    input[type="file"] {
+      margin-top: 10px;
+    }
+
+    #preview {
+      display: none;
+      width: 100%;
+      margin-top: 15px;
+      border-radius: 12px;
+    }
+
+    a {
+      display: block;
+      margin-top: 15px;
+      text-decoration: none;
+      color: #ff6f00;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="box">
+    <h2>🔥 Cooking Mode</h2>
+
+    <p id="step">Click “Next” to start cooking 🍳</p>
+
+    <div class="buttons">
+      <button onclick="prevStep()">⬅ Previous</button>
+      <button onclick="nextStep()">Next ➡</button>
+    </div>
+
+    <hr>
+
+    <h3>📸 Upload Your Dish</h3>
+    <input type="file" accept="image/*" onchange="previewImage(event)">
+    <img id="preview">
+
+    <a href="index.html">⬅ Back to Home</a>
+  </div>
+
+  <script>
+    // SAFETY CHECK
+    const recipe = localStorage.getItem("selectedRecipe");
+    if (!recipe) {
+      window.location.href = "recipes.html";
+    }
+
+    // COOKING STEPS DATA
+    const stepsData = {
+      mutton: [
+        "Wash mutton thoroughly",
+        "Pressure cook mutton till soft",
+        "Prepare onion & spice masala",
+        "Add cooked mutton and mix well",
+        "Cook for 10 minutes and serve hot"
+      ],
+      chicken: [
+        "Clean chicken properly",
+        "Fry onions till golden",
+        "Add chicken and spices",
+        "Cook until chicken is done",
+        "Serve hot with rice or roti"
+      ],
+      veg: [
+        "Wash and cut vegetables",
+        "Heat oil in pan",
+        "Add vegetables and spices",
+        "Cook for 10 minutes",
+        "Serve hot"
+      ]
+    };
+
+    let currentStep = -1;
+    const stepText = document.getElementById("step");
+
+    function nextStep() {
+      if (currentStep < stepsData[recipe].length - 1) {
+        currentStep++;
+        stepText.innerText = stepsData[recipe][currentStep];
+      }
+    }
+
+    function prevStep() {
+      if (currentStep > 0) {
+        currentStep--;
+        stepText.innerText = stepsData[recipe][currentStep];
+      }
+    }
+
+    // IMAGE PREVIEW FUNCTION
+    function previewImage(event) {
+      const img = document.getElementById("preview");
+      img.src = URL.createObjectURL(event.target.files[0]);
+      img.style.display = "block";
+    }
+  </script>
+
+</body>
+</html>

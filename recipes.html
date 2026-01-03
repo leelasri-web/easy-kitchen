@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Kitchen - Recipes</title>
+
+  <style>
+    body {
+      background: #fff7e6;
+      font-family: Arial, sans-serif;
+      padding: 15px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff6f00;
+      margin-bottom: 20px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 15px;
+      margin-bottom: 12px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    .back {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      color: #ff6f00;
+      text-decoration: none;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🍲 Select Recipe</h1>
+
+<div class="card" onclick="selectRecipe('mutton')">🥩 Mutton Curry</div>
+<div class="card" onclick="selectRecipe('chicken')">🍗 Chicken Curry</div>
+<div class="card" onclick="selectRecipe('veg')">🥗 Veg Curry</div>
+
+<a href="index.html" class="back">⬅ Back</a>
+
+<script>
+  function selectRecipe(recipe) {
+    localStorage.setItem("selectedRecipe", recipe);
+    window.location.href = "ingredients.html";
+  }
+</script>
+
+</body>
+</html>

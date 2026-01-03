@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Easy Kitchen</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      min-height: 100vh;
+      background: linear-gradient(to bottom, #fff7e6, #ffe0b2);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .container {
+      width: 90%;
+      max-width: 400px;
+      text-align: center;
+      background: #ffffff;
+      padding: 32px 22px;
+      border-radius: 18px;
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
+    }
+
+    h1 {
+      color: #ff6f00;
+      margin-bottom: 8px;
+      font-size: 32px;
+    }
+
+    .tagline {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 15px;
+    }
+
+    .buttons {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .btn {
+      text-decoration: none;
+      background: #ffcc80;
+      color: #333;
+      padding: 16px;
+      border-radius: 12px;
+      font-size: 16px;
+      font-weight: bold;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover {
+      background: #ffb74d;
+      transform: scale(1.04);
+    }
+
+    .primary {
+      background: #ff6f00;
+      color: #ffffff;
+    }
+
+    .primary:hover {
+      background: #e65100;
+    }
+
+    footer {
+      margin-top: 25px;
+      font-size: 13px;
+      color: #999;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+    <h1>Easy Kitchen</h1>
+    <p class="tagline">Cook smart. Cook easy.</p>
+
+    <div class="buttons">
+      <!-- LINKED CORRECTLY -->
+      <a href="recipes.html" class="btn">🍲 Recipes</a>
+      <a href="ingredients.html" class="btn">🥕 Ingredients</a>
+      <a href="cook.html" class="btn primary">🔥 Start Cooking</a>
+    </div>
+    <footer>
+      Made with ❤️ by Easy Kitchen
+    </footer>
+  </div>
+
+</body>
+</html>

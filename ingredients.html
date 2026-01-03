@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Ingredients</title>
+  <style>
+    body {
+      background: #fff7e6;
+      font-family: Arial;
+      padding: 15px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #ff6f00;
+    }
+
+    .item {
+      background: #fff;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+    }
+
+    a {
+      display: block;
+      text-align: center;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #ff6f00;
+      text-decoration: none;
+    }
+  </style>
+</head>
+
+<body>
+
+<h1>🥕 Ingredients</h1>
+<div id="list"></div>
+
+<a href="cook.html">🔥 Start Cooking</a>
+
+<script>
+  const data = {
+    mutton: ["Mutton", "Onion", "Tomato", "Spices", "Oil"],
+    chicken: ["Chicken", "Onion", "Ginger", "Garlic", "Spices"],
+    veg: ["Potato", "Carrot", "Beans", "Onion", "Spices"]
+  };
+
+  const recipe = localStorage.getItem("selectedRecipe");
+  const list = document.getElementById("list");
+
+  data[recipe].forEach(item => {
+    list.innerHTML += `<div class="item">${item}</div>`;
+  });
+</script>
+
+</body>
+</html>
